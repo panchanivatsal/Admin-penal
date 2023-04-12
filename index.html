@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngx-addmin e-commerce dashborad</title>
+    <link rel="shortcut icon"
+        href="esst/img/depositphotos_176200072-stock-illustration-geometric-logo-letters-cube-monogram.jpg"
+        type="image/x-icon">
+    <link rel="stylesheet" href="esst/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="esst/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="esst/css/styles.css">
+    <link rel="stylesheet" href="esst/css/style.css">
+
+    <script>
+        window.Promise ||
+            document.write(
+                '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
+            )
+        window.Promise ||
+            document.write(
+                '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
+            )
+        window.Promise ||
+            document.write(
+                '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
+            )
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+
+    <script>
+        // Replace Math.random() with a pseudo-random number generator to get reproducible results in e2e tests
+        // Based on https://gist.github.com/blixt/f17b47c62508be59987b
+        var _seed = 42;
+        Math.random = function () {
+            _seed = _seed * 16807 % 2147483647;
+            return (_seed - 1) / 2147483646;
+        };
+    </script>
+
+
+</head>
+
+<style>
+    #chartdiv {
+        width: 100%;
+        height: 80vh;
+    }
+
+    /* canvas{
+    display: none;
+} */
+</style>
+
+<body class="bg-body-bule">
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            
+          </div>
+        </div>
+      </nav> -->
+    <header>
+        <div class="container-fluid bg-dark-bule shadow  bg-body  position-fixed z-index ">
+            <div class="d-flex justify-content-between align-items-center">
+                <!-- <a class="navbar-brand" href="#"><i class="bi bi-menu-button-wide-fill"></i></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button> -->
+                <!-- <div class="navbar " id="navbarSupportedContent"> -->
+                <div class="col-12 col-lg-3 col-xl-3 d-flex justify-content-between  align-items-center">
+                    <div class="hamburger">
+                        <a href="#" class="text-decoration-none text-dark fs-5">
+                            <i class="bi bi-list text-white fs-2"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#" class="text-decoration-none fs-2 border-start border-dark border-3 px-1">
+                            Ngx-admin
+                        </a>
+                    </div>
+                    <select name="" id="vatsal"
+                        class="bg-body-bule text-white fw-bold my-0 border border-primary border-2 p-1">
+                        <option>Light</option>
+                        <option>Cosmic</option>
+                        <option>Corporate</option>
+                        <option>Metrials light</option>
+                        <option selected>Dark</option>
+                        <option>Metrials darkS</option>
+                    </select>
+                </div>
+                <div class="col-12 col-lg-8 col-xl-9">
+                    <div class="code d-flex justify-content-end align-items-center">
+                        <ul class="list-unstyled d-flex">
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-link text-white fw-bold " href="#">Support us:</a>
+                                <button class="btn bg-white me-2 fw-bold"><i class="bi bi-github mx-1"></i>Star</button>
+                                <button class="btn bg-white py-0 fw-bold mx-2">24,375</button>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active text-white fw-bold fs-6 border-start border-end border-dark border-3"
+                                    aria-current="page" href="#"><i
+                                        class="bi bi-download text-white mx-2 fw-bold fw-5"></i>470.000</a>
+                            </li>
+                            <li class="nav-item">
+                                <button class="btn text-gary fw-bold bg-dark-bule"><i
+                                        class="bi bi-envelope me-2 fs-5 text-gary"></i>contact@akveo.com</button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="btn text-gary fs-5"><i
+                                        class="border-start border-end border-2 border-dark px-3 bi bi-search"></i></button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="btn text-gary fs-5"><i
+                                        class="border-start border-end border-2 border-dark px-3 bi bi-envelope"></i></button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="btn text-gary fs-5"><i
+                                        class="border-start border-end border-2 border-dark px-3 bi bi-bell-fill"></i></button>
+                            </li>
+                            <li class="nav-item text-white fw-normal">
+                                <img src="esst/img/nick.webp" alt="" class="rounded-circle" width="40">
+                                Nick Jones
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- section-2 -->
+    <section>
+        <div class="d-flex justify-content-end">
+            <div class="col-12 col-md-3 col-lg-2 header">
+                <ul class="list-unstyled bg-dark-bule mb-0 ">
+                    <li class="text-primary border-bottom border-dark border-2 py-2"><i
+                            class="px-3 bi bi-cart text-white"></i>E-commerce</li>
+                    <li class="text-white my-2 border-bottom border-dark border-2 py-2"><i
+                            class="px-3 bi bi-houses text-white"></i>loT Dashborad</li>
+                    <li class="text-gary fw-bold mb-0 border-bottom border-dark border-2 py-2 px-3">FEATURES</li>
+                </ul>
+                <div class="accordion accordion-flush bg-dark-bule" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header bg-dark-bule" id="flush-headingOne">
+                            <button class="accordion-button collapsed bg-dark-bule text-white fw-bold" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapseOne">
+                                <i class="bi bi-columns fs-5 pe-3"></i>Layout
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse bg-dark-bule"
+                            data-bs-parent="#accordionFlushExample">
+                            <ul class="list-unstyled fs-6 fw-bold mb-0 border-bottom border-dark">
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Stepper</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">List</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Infinite List</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Accordion</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Tabs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed bg-dark-bule text-white fw-bold   " type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo">
+                                <i class="bi bi-pencil-fill fs-5 pe-3"></i>Forms
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <ul class="list-unstyled fs-6 fw-bold mb-0 border-bottom border-dark">
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Stepper</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">List</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Infinite List</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Accordion</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Tabs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed bg-dark-bule text-white fw-bold" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapseThree">
+                                <i class="bi bi-text-indent-right pe-3 fs-5"></i>UI Features
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <ul class="list-unstyled fs-6 fw-bold mb-0 border-bottom border-dark">
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Stepper</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">List</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Infinite List</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Accordion</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Tabs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingfour">
+                            <button class="accordion-button collapsed bg-dark-bule text-white fw-bold" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapsefour">
+                                <i class="bi bi-credit-card-2-back pe-3 fs-5"></i>Modal & Overlay
+                            </button>
+                        </h2>
+                        <div id="flush-collapsefour" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <ul class="list-unstyled fs-6 fw-bold mb-0 border-bottom border-dark">
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Stepper</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">List</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Infinite List</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Accordion</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Tabs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingfive">
+                            <button class="accordion-button collapsed bg-dark-bule text-white fw-bold" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapsefive">
+                                <i class="bi bi-chat-dots pe-3 fs-5"></i>Extra C omponents
+                            </button>
+                        </h2>
+                        <div id="flush-collapsefive" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <ul class="list-unstyled fs-6 fw-bold mb-0 border-bottom border-dark">
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Stepper</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">List</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Infinite List</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Accordion</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Tabs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingsix">
+                            <button class="accordion-button collapsed bg-dark-bule text-white fw-bold" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapsesix">
+                                <i class="bi bi-map pe-3 fs-5"></i>Map
+                            </button>
+                        </h2>
+                        <div id="flush-collapsesix" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <ul class="list-unstyled fs-6 fw-bold mb-0 border-bottom border-dark">
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Stepper</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">List</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Infinite List</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Accordion</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Tabs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header bg-dark-bule" id="flush-headingseven">
+                            <button class="accordion-button collapsed bg-dark-bule text-white fw-bold" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapseseven">
+                                <i class="bi bi-pie-chart-fill pe-3 fs-5"></i>Charts
+                            </button>
+                        </h2>
+                        <div id="flush-collapseseven" class="accordion-collapse collapse bg-dark-bule"
+                            data-bs-parent="#accordionFlushExample">
+                            <ul class="list-unstyled fs-6 fw-bold mb-0 border-bottom border-dark">
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Stepper</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">List</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Infinite List</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Accordion</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Tabs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingeight">
+                            <button class="accordion-button collapsed bg-dark-bule text-white fw-bold" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapseeight">
+                                <img src="esst/img/letter-t-.png" class=" pe-3 img-fluid" alt="">Editors
+                            </button>
+                        </h2>
+                        <div id="flush-collapseeight" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <ul class="list-unstyled fs-6 fw-bold mb-0 border-bottom border-dark">
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Stepper</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">List</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Infinite List</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Accordion</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Tabs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-heading9">
+                            <button class="accordion-button collapsed bg-dark-bule text-white fw-bold" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapse9">
+                                <img src="esst/img/dots-menu.png" class="pe-3 img-fluid" alt="">Tables & Data
+                            </button>
+                        </h2>
+                        <div id="flush-collapse9" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <ul class="list-unstyled fs-6 fw-bold mb-0 border-bottom border-dark">
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Stepper</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">List</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Infinite List</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Accordion</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Tabs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-heading10">
+                            <button class="accordion-button collapsed bg-dark-bule text-white fw-bold" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapse10">
+                                <img src="esst/img/share.png" alt="" class="pe-lg-3 pe-1 img-fluid">Miscellaneous
+                            </button>
+                        </h2>
+                        <div id="flush-collapse10" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <ul class="list-unstyled fs-6 fw-bold mb-0 border-bottom border-dark">
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Stepper</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">List</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Infinite List</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Accordion</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Tabs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-heading11">
+                            <button class="accordion-button collapsed bg-dark-bule text-white fw-bold" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapse11">
+                                <img src="esst/img/lock.png" alt="" class="pe-3 img-fluid">Auth
+                            </button>
+                        </h2>
+                        <div id="flush-collapse11" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <ul class="list-unstyled fs-6 fw-bold mb-0 border-bottom border-dark">
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Stepper</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">List</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Infinite List</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Accordion</a></li>
+                                <li class="px-4 border-bottom border-2 border-dark py-2"><a href="#"
+                                        class=" text-white text-decoration-none">Tabs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- section-3 -->
+            <div class="col-12 col-md-10 px-4 py-5 mt-5">
+                <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div
+                            class="col-12 col-lg-6 p-3 me-2 d-flex align-items-center justify-content-between bg-dark-bule rounded-3 shadow-lg p-3 mb-5 bg-body rounded">
+                            <div class="box-pantone bg-primary p-2 col-2 text-center">
+                                <img src="esst/img/pantone.png" class="img-fluid" width="50" alt="">
+                            </div>
+                            <div class=" col-9 d-flex align-items-center justify-content-between ">
+                                <h5 class="text-white">Hire us to customize ngx-admin</h5>
+                                <button class="btn btn-bg-gr text-center text-white  col-4 py-2">
+                                    <h5> Contact us </h5>
+                                </button>
+                            </div>
+                        </div>
+                        <div
+                            class="col-12 col-lg-6 p-3 d-flex align-items-center justify-content-between  bg-dark-bule rounded-3 shadow-lg p-3 mb-5 bg-body rounded">
+                            <div class="box-pantone bg-primary p-3 col-12 col-md-2 text-center">
+                                <img src="esst/img/briefcase.png" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-12 col-md-9 d-flex align-items-center justify-content-between">
+                                <h5 class="text-white">Documentation and customization articles</h5>
+                                <button class="btn btn-bg-gr col-4 py-2">
+                                    <h5> Contact us </h5>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 d-flex justify-content-between">
+                    <div class="col-5 row  justify-content-between">
+                        <div class="col-6">
+                            <div id="chart" class="pt-3">
+                                <div class=" px-2 char-con d-flex justify-content-between align-items-center">
+                                    <h6>$ Profit</h6>
+                                    <h6 class=""><i class="bi bi-chevron-double-right"></i></h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div id="chart-timeline" class="bg-dark-bule text-white" style="height:3600px;">
+                                <div class=" px-2 char-con d-flex justify-content-between align-items-center ">
+                                    <h6>$ Profit</h6>
+                                    <h6 class=""><i class="bi bi-chevron-double-right"></i></h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 text-white ">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="col-3">
+                                    <h2>Traffic</h2>
+                                </div>
+                                <div class="col-3">
+                                    <select name="" id="vatsal"
+                                        class="bg-body-bule text-white fw-bold my-0 border border-2 p-1">
+                                        <option>Light</option>
+                                        <option>Cosmic</option>
+                                        <option>Corporate</option>
+                                        <option>Metrials light</option>
+                                        <option selected>Dark</option>
+                                        <option>Metrials darkS</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 header2 mb-3">
+                                <div
+                                    class="d-flex border-bottom border-dark justify-content-between align-items-center py-2">
+                                    <div class="col-2">
+                                        <h6 class="text-center">Jan</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">625</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-caret-down-fill text-red"></i>7%</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-align-bottom text-red"></i> Dec</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">Jan</h6>
+                                    </div>
+                                </div>
+                                <div
+                                    class="d-flex border-bottom border-dark justify-content-between align-items-center py-2">
+                                    <div class="col-2">
+                                        <h6 class="text-center">Feb</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">95</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-caret-up-fill text-pista"></i>74%</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-align-top text-pista"></i>Dec</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">Feb</h6>
+                                    </div>
+                                </div>
+                                <div
+                                    class="d-flex border-bottom border-dark justify-content-between align-items-center py-2">
+                                    <div class="col-2">
+                                        <h6 class="text-center">Mar</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">152</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-caret-down-fill text-red"></i>50%</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-align-bottom text-red"></i> Dec</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">Mar</h6>
+                                    </div>
+                                </div>
+                                <div
+                                    class="d-flex border-bottom border-dark justify-content-between align-items-center py-2">
+                                    <div class="col-2">
+                                        <h6 class="text-center">Apr</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">555</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-caret-up-fill text-pista"></i>10%</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-align-top text-pista"></i> Dec</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">Apr</h6>
+                                    </div>
+                                </div>
+                                <div
+                                    class="d-flex border-bottom border-dark justify-content-between align-items-center py-2">
+                                    <div class="col-2">
+                                        <h6 class="text-center">May</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">565</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-caret-up-fill text-pista"></i>10%</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-align-top text-pista"></i> Dec</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">May</h6>
+                                    </div>
+                                </div>
+                                <div
+                                    class="d-flex border-bottom border-dark justify-content-between align-items-center py-2">
+                                    <div class="col-2">
+                                        <h6 class="text-center">Jun</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">55</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-caret-down-fill text-red"></i>50%</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-align-bottom text-red"></i> Dec</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">Jun</h6>
+                                    </div>
+                                </div>
+                                <div
+                                    class="d-flex border-bottom border-dark justify-content-between align-items-center py-2">
+                                    <div class="col-2">
+                                        <h6 class="text-center">Jan</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">625</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-caret-down-fill text-red"></i>7%</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-align-bottom text-red"></i> Dec</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">Jan</h6>
+                                    </div>
+                                </div>
+                                <div
+                                    class="d-flex border-bottom border-dark justify-content-between align-items-center py-2">
+                                    <div class="col-2">
+                                        <h6 class="text-center">Feb</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">95</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-caret-up-fill text-pista"></i>74%</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-align-top text-pista"></i>Dec</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">Feb</h6>
+                                    </div>
+                                </div>
+                                <div
+                                    class="d-flex border-bottom border-dark justify-content-between align-items-center py-2">
+                                    <div class="col-2">
+                                        <h6 class="text-center">Mar</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">152</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-caret-down-fill text-red"></i>50%</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-align-bottom text-red"></i> Dec</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">Mar</h6>
+                                    </div>
+                                </div>
+                                <div
+                                    class="d-flex border-bottom border-dark justify-content-between align-items-center py-2">
+                                    <div class="col-2">
+                                        <h6 class="text-center">Apr</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">555</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-caret-up-fill text-pista"></i>10%</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-align-top text-pista"></i> Dec</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">Apr</h6>
+                                    </div>
+                                </div>
+                                <div
+                                    class="d-flex border-bottom border-dark justify-content-between align-items-center py-2">
+                                    <div class="col-2">
+                                        <h6 class="text-center">May</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">565</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-caret-up-fill text-pista"></i>10%</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-align-top text-pista"></i> Dec</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">May</h6>
+                                    </div>
+                                </div>
+                                <div
+                                    class="d-flex border-bottom border-dark justify-content-between align-items-center py-2">
+                                    <div class="col-2">
+                                        <h6 class="text-center">Jun</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">55</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-caret-down-fill text-red"></i>50%</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-align-bottom text-red"></i> Dec</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">Jun</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="col-12 bg-dark-bule py-3 rounded-3">
+                            <div class="d-flex justify-content-between">
+                                <div class="col-5">
+                                    <a href="" class="text-decoration-none">
+                                        <h2 class="text-white text-center">Orders</h2>
+                                    </a>
+                                </div>
+                                <div class="col-5">
+                                    <a href="" class="text-decoration-none">
+                                        <h2 class="text-white text-center">Profit</h2>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <div class="col-3 text-center py-4">
+                                    <h6 class="text-white">Marketplace</h6>
+                                    <h3 class="text-white fs-4">3654</h3>
+                                </div>
+                                <div class="col-3 text-center">
+                                    <h6 class="text-white">Last Month</h6>
+                                    <h3 class="text-white fs-4">946</h3>
+                                </div>
+                                <div class="col-3 text-center">
+                                    <h6 class="text-white">Last Week</h6>
+                                    <h3 class="text-white fs-4">554</h3>
+                                </div>
+                                <div class="col-3 text-center">
+                                    <h6 class="text-white">Today</h6>
+                                    <h3 class="text-white fs-4">230</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="app" class="py-3 bar-chart "
+                            style=" width:600px; align-items:center; height: 500px; display:grid;"></div>
+                    </div>
+                </div>
+                <!-- section-4 -->
+                <div class="col-12">
+                    <div class="d-flex justify-content-between ">
+                        <div class="col-8 rounded-3 bg-dark-bule">
+                            <div class="row justify-content-between align-items">
+                                <div class="col-7">
+                                    <div id="chartdiv" style="height: 540px;"></div>
+                                </div>
+                                <div class="col-5">
+                                    <div id="container11" style="height: 100%"></div>
+                                    <!-- <div id="container1" style="height: 100% 7"></div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3 text-white fw-bold px-2 bg-dark-bule px-4 py-4 rounded-3">
+                            <h6>Today’s Profit</h6>
+                            <h2>572,900</h2>
+                            <div class="progress bg-dark-bule" style="height: 1px;">
+                                <div class="progress-bar bg-dark-bule rounded-0" role="progressbar" style="width: 25%;"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="progress bg-black" style="height: 20px;">
+                                <div class="progress-bar bg-body-bule rounded-0" role="progressbar" style="width: 70%;"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <p class="text-white-50 be-l">Better than last week (70%)</p>
+                            <h6>New Orders</h6>
+                            <h2>6,378</h2>
+                            <div class="progress bg-dark-bule" style="height: 1px;">
+                                <div class="progress-bar bg-dark-bule rounded-0" role="progressbar" style="width: 25%;"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="progress bg-black" style="height: 20px;">
+                                <div class="progress-bar bg-body-bule rounded-0" role="progressbar" style="width: 30%;"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <p class="text-white-50 be-l">Better than last week (30%)</p>
+                            <h6>New Comments</h6>
+                            <h2>200</h2>
+                            <div class="progress bg-dark-bule" style="height: 1px;">
+                                <div class="progress-bar bg-dark-bule rounded-0" role="progressbar" style="width: 25%;"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="progress bg-black" style="height: 20px;">
+                                <div class="progress-bar bg-body-bule rounded-0" role="progressbar" style="width: 55%;"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <p class="text-white-50 be-l">Better than last week (55%)</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- section-5 -->
+                <div class="col-12 py-5 position-reletive hzx">
+                    <div class="d-flex justify-content-between">
+                        <div class="col-8 position-reletive rounded-3 bg-dark-bule">
+                            <h2 class="text-white px-5">Visitors Analytics</h2>
+                            <h6 class="text-white px-5">Consumption</h6>
+                             <div id="container10" style="height: 300px"></div>
+                        </div>
+                        <div class="div position-absolute">
+                            <h2 class="text-white fw-bold">1,100</h2>
+                            <h6 class="text-white">New Visitors</h6>
+                            <div id="container6" style="height: 100%">
+                            </div>
+                        </div>
+                        
+                        <div class="col-3 bg-dark-bule text-white header3">
+                            <div class="row">
+                                <div
+                                    class="d-flex border-bottom border-dark justify-content-between align-items-center py-2">
+                                    <div class="col-2">
+                                        <h6 class="text-center">Jan</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">625</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-caret-down-fill text-red"></i>17%</h6>
+                                    </div>
+
+                                </div>
+                                <div
+                                    class="d-flex border-bottom border-dark justify-content-between align-items-center py-2">
+                                    <div class="col-2">
+                                        <h6 class="text-center">Feb</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">95</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-caret-up-fill text-pista"></i>74%</h6>
+                                    </div>
+                                </div>
+                                <div
+                                    class="d-flex border-bottom border-dark justify-content-between align-items-center py-2">
+                                    <div class="col-2">
+                                        <h6 class="text-center">Mar</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">152</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-caret-down-fill text-red"></i>50%</h6>
+                                    </div>
+                                </div>
+                                <div
+                                    class="d-flex border-bottom border-dark justify-content-between align-items-center py-2">
+                                    <div class="col-2">
+                                        <h6 class="text-center">Apr</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">555</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-caret-up-fill text-pista"></i>10%</h6>
+                                    </div>
+                                </div>
+                                <div
+                                    class="d-flex border-bottom border-dark justify-content-between align-items-center py-2">
+                                    <div class="col-2">
+                                        <h6 class="text-center">Apr</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">555</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-caret-up-fill text-pista"></i>10%</h6>
+                                    </div>
+                                </div>
+                                <div
+                                    class="d-flex border-bottom border-dark justify-content-between align-items-center py-2">
+                                    <div class="col-2">
+                                        <h6 class="text-center">Apr</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">555</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-caret-up-fill text-pista"></i>10%</h6>
+                                    </div>
+                                </div>
+                                <div
+                                    class="d-flex border-bottom border-dark justify-content-between align-items-center py-2">
+                                    <div class="col-2">
+                                        <h6 class="text-center">Jan</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">625</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-caret-down-fill text-red"></i>30%</h6>
+                                    </div>
+
+                                </div>
+                                <div
+                                    class="d-flex border-bottom border-dark justify-content-between align-items-center py-2">
+                                    <div class="col-2">
+                                        <h6 class="text-center">Feb</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">95</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-caret-up-fill text-pista"></i>74%</h6>
+                                    </div>
+                                </div>
+                                <div
+                                    class="d-flex border-bottom border-dark justify-content-between align-items-center py-2">
+                                    <div class="col-2">
+                                        <h6 class="text-center">Mar</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">152</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-caret-down-fill text-red"></i>50%</h6>
+                                    </div>
+                                </div>
+                                <div
+                                    class="d-flex border-bottom border-dark justify-content-between align-items-center py-2">
+                                    <div class="col-2">
+                                        <h6 class="text-center">Apr</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">555</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-caret-up-fill text-pista"></i>10%</h6>
+                                    </div>
+                                </div>
+                                <div
+                                    class="d-flex border-bottom border-dark justify-content-between align-items-center py-2">
+                                    <div class="col-2">
+                                        <h6 class="text-center">Apr</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">555</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-caret-up-fill text-pista"></i>10%</h6>
+                                    </div>
+                                </div>
+                                <div
+                                    class="d-flex border-bottom border-dark justify-content-between align-items-center py-2">
+                                    <div class="col-2">
+                                        <h6 class="text-center">Apr</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center">555</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-center"><i class="bi bi-caret-up-fill text-pista"></i>10%</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- section-6 -->
+                <div class="col-12 bg-dark-bule py-3 fot">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="col-5 text-white px-2">
+                            <h6>Created with ♥ by <a href="">Akveo</a> 2019. Made with <a href="">Nebular.</a></h6>
+                        </div>
+                        <div class="col-3 text-end px-5">
+                            <i class="fs-2 px-1 text-white-50 bi bi-github"></i>
+                            <i class="fs-2 px-1 text-white-50 bi bi-facebook"></i>
+                            <i class="fs-2 px-1 text-white-50 bi bi-twitter"></i>
+                            <i class="fs-2 px-1 text-white-50 bi bi-linkedin"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+    </section>
+
+
+    <!-- chart-1 -->
+    <script>
+
+        var options = {
+            series: [{
+                name: 'series1',
+                data: [31, 40, 28, 51, 42, 109, 100]
+            }, {
+                name: 'series2',
+                data: [11, 32, 45, 32, 34, 52, 41]
+            }],
+            chart: {
+                height: 350,
+                type: 'area'
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'smooth'
+            },
+            xaxis: {
+                type: 'datetime',
+                categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+            },
+            tooltip: {
+                x: {
+                    format: 'dd/MM/yy HH:mm'
+                },
+            },
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+
+
+    </script>
+
+    <!-- chart-2 -->
+    <script>
+
+        var options = {
+            series: [{
+                data: [
+                    [1327359600000, 30.95],
+                    [1327446000000, 31.34],
+                    [1327532400000, 31.18],
+                    [1327618800000, 31.05],
+                    [1327878000000, 31.00],
+                    [1327964400000, 30.95],
+                    [1328050800000, 31.24],
+                    [1328137200000, 31.29],
+                    [1328223600000, 31.85],
+                    [1328482800000, 31.86],
+                    [1328569200000, 32.28],
+                    [1328655600000, 32.10],
+                    [1328742000000, 32.65],
+                    [1328828400000, 32.21],
+                    [1329087600000, 32.35],
+                    [1329174000000, 32.44],
+                    [1329260400000, 32.46],
+                    [1329346800000, 32.86],
+                    [1329433200000, 32.75],
+                    [1329778800000, 32.54],
+                    [1329865200000, 32.33],
+                    [1329951600000, 32.97],
+                    [1330038000000, 33.41],
+                    [1330297200000, 33.27],
+                    [1330383600000, 33.27],
+                    [1330470000000, 32.89],
+                    [1330556400000, 33.10],
+                    [1330642800000, 33.73],
+                    [1330902000000, 33.22],
+                    [1330988400000, 31.99],
+                    [1331074800000, 32.41],
+                    [1331161200000, 33.05],
+                    [1331247600000, 33.64],
+                    [1331506800000, 33.56],
+                    [1331593200000, 34.22],
+                    [1331679600000, 33.77],
+                    [1331766000000, 34.17],
+                    [1331852400000, 33.82],
+                    [1332111600000, 34.51],
+                    [1332198000000, 33.16],
+                    [1332284400000, 33.56],
+                    [1332370800000, 33.71],
+                    [1332457200000, 33.81],
+                    [1332712800000, 34.40],
+                    [1332799200000, 34.63],
+                    [1332885600000, 34.46],
+                    [1332972000000, 34.48],
+                    [1333058400000, 34.31],
+                    [1333317600000, 34.70],
+                    [1333404000000, 34.31],
+                    [1333490400000, 33.46],
+                    [1333576800000, 33.59],
+                    [1333922400000, 33.22],
+                    [1334008800000, 32.61],
+                    [1334095200000, 33.01],
+                    [1334181600000, 33.55],
+                    [1334268000000, 33.18],
+                    [1334527200000, 32.84],
+                    [1334613600000, 33.84],
+                    [1334700000000, 33.39],
+                    [1334786400000, 32.91],
+                    [1334872800000, 33.06],
+                    [1335132000000, 32.62],
+                    [1335218400000, 32.40],
+                    [1335304800000, 33.13],
+                    [1335391200000, 33.26],
+                    [1335477600000, 33.58],
+                    [1335736800000, 33.55],
+                    [1335823200000, 33.77],
+                    [1335909600000, 33.76],
+                    [1335996000000, 33.32],
+                    [1336082400000, 32.61],
+                    [1336341600000, 32.52],
+                    [1336428000000, 32.67],
+                    [1336514400000, 32.52],
+                    [1336600800000, 31.92],
+                    [1336687200000, 32.20],
+                    [1336946400000, 32.23],
+                    [1337032800000, 32.33],
+                    [1337119200000, 32.36],
+                    [1337205600000, 32.01],
+                    [1337292000000, 31.31],
+                    [1337551200000, 32.01],
+                    [1337637600000, 32.01],
+                    [1337724000000, 32.18],
+                    [1337810400000, 31.54],
+                    [1337896800000, 31.60],
+                    [1338242400000, 32.05],
+                    [1338328800000, 31.29],
+                    [1338415200000, 31.05],
+                    [1338501600000, 29.82],
+                    [1338760800000, 30.31],
+                    [1338847200000, 30.70],
+                    [1338933600000, 31.69],
+                    [1339020000000, 31.32],
+                    [1339106400000, 31.65],
+                    [1339365600000, 31.13],
+                    [1339452000000, 31.77],
+                    [1339538400000, 31.79],
+                    [1339624800000, 31.67],
+                    [1339711200000, 32.39],
+                    [1339970400000, 32.63],
+                    [1340056800000, 32.89],
+                    [1340143200000, 31.99],
+                    [1340229600000, 31.23],
+                    [1340316000000, 31.57],
+                    [1340575200000, 30.84],
+                    [1340661600000, 31.07],
+                    [1340748000000, 31.41],
+                    [1340834400000, 31.17],
+                    [1340920800000, 32.37],
+                    [1341180000000, 32.19],
+                    [1341266400000, 32.51],
+                    [1341439200000, 32.53],
+                    [1341525600000, 31.37],
+                    [1341784800000, 30.43],
+                    [1341871200000, 30.44],
+                    [1341957600000, 30.20],
+                    [1342044000000, 30.14],
+                    [1342130400000, 30.65],
+                    [1342389600000, 30.40],
+                    [1342476000000, 30.65],
+                    [1342562400000, 31.43],
+                    [1342648800000, 31.89],
+                    [1342735200000, 31.38],
+                    [1342994400000, 30.64],
+                    [1343080800000, 30.02],
+                    [1343167200000, 30.33],
+                    [1343253600000, 30.95],
+                    [1343340000000, 31.89],
+                    [1343599200000, 31.01],
+                    [1343685600000, 30.88],
+                    [1343772000000, 30.69],
+                    [1343858400000, 30.58],
+                    [1343944800000, 32.02],
+                    [1344204000000, 32.14],
+                    [1344290400000, 32.37],
+                    [1344376800000, 32.51],
+                    [1344463200000, 32.65],
+                    [1344549600000, 32.64],
+                    [1344808800000, 32.27],
+                    [1344895200000, 32.10],
+                    [1344981600000, 32.91],
+                    [1345068000000, 33.65],
+                    [1345154400000, 33.80],
+                    [1345413600000, 33.92],
+                    [1345500000000, 33.75],
+                    [1345586400000, 33.84],
+                    [1345672800000, 33.50],
+                    [1345759200000, 32.26],
+                    [1346018400000, 32.32],
+                    [1346104800000, 32.06],
+                    [1346191200000, 31.96],
+                    [1346277600000, 31.46],
+                    [1346364000000, 31.27],
+                    [1346709600000, 31.43],
+                    [1346796000000, 32.26],
+                    [1346882400000, 32.79],
+                    [1346968800000, 32.46],
+                    [1347228000000, 32.13],
+                    [1347314400000, 32.43],
+                    [1347400800000, 32.42],
+                    [1347487200000, 32.81],
+                    [1347573600000, 33.34],
+                    [1347832800000, 33.41],
+                    [1347919200000, 32.57],
+                    [1348005600000, 33.12],
+                    [1348092000000, 34.53],
+                    [1348178400000, 33.83],
+                    [1348437600000, 33.41],
+                    [1348524000000, 32.90],
+                    [1348610400000, 32.53],
+                    [1348696800000, 32.80],
+                    [1348783200000, 32.44],
+                    [1349042400000, 32.62],
+                    [1349128800000, 32.57],
+                    [1349215200000, 32.60],
+                    [1349301600000, 32.68],
+                    [1349388000000, 32.47],
+                    [1349647200000, 32.23],
+                    [1349733600000, 31.68],
+                    [1349820000000, 31.51],
+                    [1349906400000, 31.78],
+                    [1349992800000, 31.94],
+                    [1350252000000, 32.33],
+                    [1350338400000, 33.24],
+                    [1350424800000, 33.44],
+                    [1350511200000, 33.48],
+                    [1350597600000, 33.24],
+                    [1350856800000, 33.49],
+                    [1350943200000, 33.31],
+                    [1351029600000, 33.36],
+                    [1351116000000, 33.40],
+                    [1351202400000, 34.01],
+                    [1351638000000, 34.02],
+                    [1351724400000, 34.36],
+                    [1351810800000, 34.39],
+                    [1352070000000, 34.24],
+                    [1352156400000, 34.39],
+                    [1352242800000, 33.47],
+                    [1352329200000, 32.98],
+                    [1352415600000, 32.90],
+                    [1352674800000, 32.70],
+                    [1352761200000, 32.54],
+                    [1352847600000, 32.23],
+                    [1352934000000, 32.64],
+                    [1353020400000, 32.65],
+                    [1353279600000, 32.92],
+                    [1353366000000, 32.64],
+                    [1353452400000, 32.84],
+                    [1353625200000, 33.40],
+                    [1353884400000, 33.30],
+                    [1353970800000, 33.18],
+                    [1354057200000, 33.88],
+                    [1354143600000, 34.09],
+                    [1354230000000, 34.61],
+                    [1354489200000, 34.70],
+                    [1354575600000, 35.30],
+                    [1354662000000, 35.40],
+                    [1354748400000, 35.14],
+                    [1354834800000, 35.48],
+                    [1355094000000, 35.75],
+                    [1355180400000, 35.54],
+                    [1355266800000, 35.96],
+                    [1355353200000, 35.53],
+                    [1355439600000, 37.56],
+                    [1355698800000, 37.42],
+                    [1355785200000, 37.49],
+                    [1355871600000, 38.09],
+                    [1355958000000, 37.87],
+                    [1356044400000, 37.71],
+                    [1356303600000, 37.53],
+                    [1356476400000, 37.55],
+                    [1356562800000, 37.30],
+                    [1356649200000, 36.90],
+                    [1356908400000, 37.68],
+                    [1357081200000, 38.34],
+                    [1357167600000, 37.75],
+                    [1357254000000, 38.13],
+                    [1357513200000, 37.94],
+                    [1357599600000, 38.14],
+                    [1357686000000, 38.66],
+                    [1357772400000, 38.62],
+                    [1357858800000, 38.09],
+                    [1358118000000, 38.16],
+                    [1358204400000, 38.15],
+                    [1358290800000, 37.88],
+                    [1358377200000, 37.73],
+                    [1358463600000, 37.98],
+                    [1358809200000, 37.95],
+                    [1358895600000, 38.25],
+                    [1358982000000, 38.10],
+                    [1359068400000, 38.32],
+                    [1359327600000, 38.24],
+                    [1359414000000, 38.52],
+                    [1359500400000, 37.94],
+                    [1359586800000, 37.83],
+                    [1359673200000, 38.34],
+                    [1359932400000, 38.10],
+                    [1360018800000, 38.51],
+                    [1360105200000, 38.40],
+                    [1360191600000, 38.07],
+                    [1360278000000, 39.12],
+                    [1360537200000, 38.64],
+                    [1360623600000, 38.89],
+                    [1360710000000, 38.81],
+                    [1360796400000, 38.61],
+                    [1360882800000, 38.63],
+                    [1361228400000, 38.99],
+                    [1361314800000, 38.77],
+                    [1361401200000, 38.34],
+                    [1361487600000, 38.55],
+                    [1361746800000, 38.11],
+                    [1361833200000, 38.59],
+                    [1361919600000, 39.60],
+                ]
+            }],
+            chart: {
+                id: 'area-datetime',
+                type: 'area',
+                height: 350,
+                zoom: {
+                    autoScaleYaxis: true
+                }
+            },
+            annotations: {
+                yaxis: [{
+                    y: 30,
+                    borderColor: '#999',
+                    label: {
+                        show: true,
+                        text: 'Support',
+                        style: {
+                            color: "#fff",
+                            background: '#00E396'
+                        }
+                    }
+                }],
+                xaxis: [{
+                    x: new Date('14 Nov 2012').getTime(),
+                    borderColor: '#999',
+                    yAxisIndex: 0,
+                    label: {
+                        show: true,
+                        text: 'Rally',
+                        style: {
+                            color: "#fff",
+                            background: '#775DD0'
+                        }
+                    }
+                }]
+            },
+            dataLabels: {
+                enabled: false
+            },
+            markers: {
+                size: 0,
+                style: 'hollow',
+            },
+            xaxis: {
+                type: 'datetime',
+                min: new Date('01 Mar 2012').getTime(),
+                tickAmount: 6,
+            },
+            tooltip: {
+                x: {
+                    format: 'dd MMM yyyy'
+                }
+            },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    shadeIntensity: 1,
+                    opacityFrom: 0.7,
+                    opacityTo: 0.9,
+                    stops: [0, 100]
+                }
+            },
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart-timeline"), options);
+        chart.render();
+
+
+        var resetCssClasses = function (activeEl) {
+            var els = document.querySelectorAll('button')
+            Array.prototype.forEach.call(els, function (el) {
+                el.classList.remove('active')
+            })
+
+            activeEl.target.classList.add('active')
+        }
+
+        document
+            .querySelector('#one_month')
+            .addEventListener('click', function (e) {
+                resetCssClasses(e)
+
+                chart.zoomX(
+                    new Date('28 Jan 2013').getTime(),
+                    new Date('27 Feb 2013').getTime()
+                )
+            })
+
+        document
+            .querySelector('#six_months')
+            .addEventListener('click', function (e) {
+                resetCssClasses(e)
+
+                chart.zoomX(
+                    new Date('27 Sep 2012').getTime(),
+                    new Date('27 Feb 2013').getTime()
+                )
+            })
+
+        document
+            .querySelector('#one_year')
+            .addEventListener('click', function (e) {
+                resetCssClasses(e)
+                chart.zoomX(
+                    new Date('27 Feb 2012').getTime(),
+                    new Date('27 Feb 2013').getTime()
+                )
+            })
+
+        document.querySelector('#ytd').addEventListener('click', function (e) {
+            resetCssClasses(e)
+
+            chart.zoomX(
+                new Date('01 Jan 2013').getTime(),
+                new Date('27 Feb 2013').getTime()
+            )
+        })
+
+        document.querySelector('#all').addEventListener('click', function (e) {
+            resetCssClasses(e)
+
+            chart.zoomX(
+                new Date('23 Jan 2012').getTime(),
+                new Date('27 Feb 2013').getTime()
+            )
+        })
+
+    </script>
+
+    <!-- chart-3 -->
+    <script type="text/babel">
+        class ApexChart extends React.Component {
+            constructor(props) {
+                super(props);
+
+                this.state = {
+
+                    series: [{
+                        name: 'Net Profit',
+                        data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
+                    }, {
+                        name: 'Revenue',
+                        data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
+                    }, {
+                        name: 'Free Cash Flow',
+                        data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
+                    }],
+                    options: {
+                        chart: {
+                            type: 'bar',
+                            height: 350
+                        },
+                        plotOptions: {
+                            bar: {
+                                horizontal: false,
+                                columnWidth: '55%',
+                                endingShape: 'rounded'
+                            },
+                        },
+                        dataLabels: {
+                            enabled: false
+                        },
+                        stroke: {
+                            show: true,
+                            width: 2,
+                            colors: ['transparent']
+                        },
+                        xaxis: {
+                            categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+                        },
+                        yaxis: {
+                            title: {
+                                text: '$ (thousands)'
+                            }
+                        },
+                        fill: {
+                            opacity: 1
+                        },
+                        tooltip: {
+                            y: {
+                                formatter: function (val) {
+                                    return "$ " + val + " thousands"
+                                }
+                            }
+                        }
+                    },
+
+
+                };
+            }
+
+
+
+            render() {
+                return (
+                    <div>
+                        <div id="chart">
+                            <ReactApexChart options={this.state.options} series={this.state.series} type="bar" height={350} />
+                        </div>
+                        <div id="html-dist"></div>
+                    </div>
+                );
+            }
+        }
+
+        const domContainer = document.querySelector('#app');
+        ReactDOM.render(React.createElement(ApexChart), domContainer);
+    </script>
+    <script src="esst/js/bootstrap.min.js"></script>
+
+
+    <!-- map  section-4 -->
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/jquery"></script>
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+
+    <!-- bar-chart nearby-map section-4  -->
+    <script src="https://cdn.jsdelivr.net/npm/react@16.12/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@16.12/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prop-types@15.7.2/prop-types.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-apexcharts@1.3.6/dist/react-apexcharts.iife.min.js"></script>
+
+
+    <!-- left=chart -->
+
+
+    <!-- map- -->
+    <script src="esst/js/index.js"></script>
+    <script src="esst/js/map.js"></script>
+    <script src="esst/js/worldLow.js"></script>
+    <script src="esst/js/Animated.js"></script>
+    <script src="esst/js/index2.js"></script>
+
+
+    <!-- position pie chart -->
+    <script type="text/javascript">
+        var dom = document.getElementById('container6');
+        var myChart = echarts.init(dom, null, {
+          renderer: 'canvas',
+          useDirtyRect: false
+        });
+        var app = {};
+        
+        var option;
+    
+        option = {
+      tooltip: {
+        trigger: 'item'
+      },
+      legend: {
+        top: '5%',
+        left: 'center'
+      },
+      series: [
+        {
+    
+          type: 'pie',
+          radius: ['40%', '70%'],
+          avoidLabelOverlap: false,
+          itemStyle: {
+            borderRadius: 10,
+            borderColor: '#fff',
+            borderWidth: 2
+          },
+          label: {
+            show: false,
+            position: 'center'
+          },
+          emphasis: {
+            label: {
+              show: true,
+              fontSize: 40,
+              fontWeight: 'bold'
+            }
+          },
+          labelLine: {
+            show: false
+          },
+          data: [
+            { value: 1048,},
+            { value: 735, },
+            { value: 580, },
+            { value: 484, },
+            { value: 300, }
+          ]
+        }
+      ]
+    };
+    
+        if (option && typeof option === 'object') {
+          myChart.setOption(option);
+        }
+    
+        window.addEventListener('resize', myChart.resize);
+      </script>
+
+
+    <script src="livechart/Animated.js"></script>
+    <script src="livechart/index.js"></script>
+    <script src="livechart/index22.js"></script>
+    <script src="livechart/stock.js"></script>
+    <script src="livechart/xy.js"></script>
+
+    <!-- garp  sec-5-->
+    <script type="text/javascript">
+        var dom = document.getElementById('container10');
+        var myChart = echarts.init(dom, null, {
+            renderer: 'canvas',
+            useDirtyRect: false
+        });
+        var app = {};
+
+        var option;
+
+        option = {
+
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                    label: {
+                        backgroundColor: '#6a7985'
+                    }
+                }
+            },
+
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value'
+                }
+            ],
+            series: [
+                {
+                    name: 'Email',
+                    type: 'line',
+                    stack: 'Total',
+                    areaStyle: {},
+                    emphasis: {
+                        focus: 'series'
+                    },
+                    data: [120, 132, 101, 134, 90, 230, 210]
+                },
+                {
+                    name: 'Union Ads',
+                    type: 'line',
+                    stack: 'Total',
+                    areaStyle: {},
+                    emphasis: {
+                        focus: 'series'
+                    },
+                    data: [220, 182, 191, 234, 290, 330, 310]
+                },
+                {
+                    name: 'Video Ads',
+                    type: 'line',
+                    stack: 'Total',
+                    areaStyle: {},
+                    emphasis: {
+                        focus: 'series'
+                    },
+                    data: [150, 232, 201, 154, 190, 330, 410]
+                },
+                {
+                    name: 'Direct',
+                    type: 'line',
+                    stack: 'Total',
+                    areaStyle: {},
+                    emphasis: {
+                        focus: 'series'
+                    },
+                    data: [320, 332, 301, 334, 390, 330, 320]
+                },
+                {
+                    name: 'Search Engine',
+                    type: 'line',
+                    stack: 'Total',
+                    label: {
+                        show: true,
+                        position: 'top'
+                    },
+                    areaStyle: {},
+                    emphasis: {
+                        focus: 'series'
+                    },
+                    data: [820, 932, 901, 934, 1290, 1330, 1320]
+                }
+            ]
+        };
+
+        if (option && typeof option === 'object') {
+            myChart.setOption(option);
+        }
+
+        window.addEventListener('resize', myChart.resize);
+    </script>
+    <!-- 
+      seriesIndex sec-4 -->
+    <script type="text/javascript">
+        var dom = document.getElementById('container11');
+        var myChart = echarts.init(dom, 'null', {
+            renderer: 'canvas',
+            useDirtyRect: false
+        });
+        var app = {};
+        var ROOT_PATH = 'https://echarts.apache.org/examples';
+        var option;
+
+        const weatherIcons = {
+            Sunny: ROOT_PATH + '/data/asset/img/weather/sunny_128.png',
+            Cloudy: ROOT_PATH + '/data/asset/img/weather/cloudy_128.png',
+            Showers: ROOT_PATH + '/data/asset/img/weather/showers_128.png'
+        };
+        const seriesLabel = {
+            show: true
+        };
+        option = {
+            title: {
+
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+                // data: ['City Alpha', 'City Beta', 'City Gamma']
+            },
+            grid: {
+                left: 100
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'value',
+                // name: 'Days',
+                axisLabel: {
+                    formatter: '{value}'
+                }
+            },
+            yAxis: {
+                // type: 'category',
+                inverse: true,
+                data: ['Sunny', 'Cloudy', 'Showers'],
+                axisLabel: {
+                    formatter: function (value) {
+                        // return '{' + value + '| }\n{value|' + value + '}';
+                    },
+                    margin: 20,
+                    rich: {
+                        value: {
+                            lineHeight: 30,
+                            align: 'center'
+                        }
+                    }
+                }
+            },
+            series: [
+                {
+                    type: 'bar',
+                    data: [165, 170, 30],
+                    label: seriesLabel,
+                    markPoint: {
+                        symbolSize: 1,
+                        symbolOffset: [0, '50%'],
+                        label: {
+                            formatter: '{a|{a}\n}{b|{b} }{c|{c}}',
+                            backgroundColor: 'rgb(242,242,242)',
+                            borderColor: '#aaa',
+                            borderWidth: 1,
+                            borderRadius: 4,
+                            padding: [4, 10],
+                            lineHeight: 26,
+                            position: 'right',
+                            distance: 20,
+                            rich: {
+                                a: {
+                                    align: 'center',
+                                    color: '#fff',
+                                    fontSize: 18,
+                                    textShadowBlur: 2,
+                                    textShadowColor: '#000',
+                                    textShadowOffsetX: 0,
+                                    textShadowOffsetY: 1,
+                                    textBorderColor: '#333',
+                                    textBorderWidth: 2
+                                },
+                                b: {
+                                    color: '#333'
+                                },
+                                c: {
+                                    color: '#ff8811',
+                                    textBorderColor: '#000',
+                                    textBorderWidth: 1,
+                                    fontSize: 22
+                                }
+                            }
+                        },
+                        data: [
+                            { type: 'max', name: 'max days: ' },
+                            { type: 'min', name: 'min days: ' }
+                        ]
+                    }
+                },
+                {
+
+                    type: 'bar',
+                    label: seriesLabel,
+                    data: [150, 105, 110]
+                },
+                {
+
+                    type: 'bar',
+                    label: seriesLabel,
+                    data: [220, 82, 63]
+                }
+            ]
+        };
+
+        if (option && typeof option === 'object') {
+            myChart.setOption(option);
+        }
+
+        window.addEventListener('resize', myChart.resize);
+    </script>
+</body>
+
+</html>

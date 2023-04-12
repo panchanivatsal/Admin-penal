@@ -1,0 +1,212 @@
+.bg-dark-bule {
+    background-color: #222b45 !important;
+}
+
+.bg-body-bule {
+    background-color: #171c32 !important;
+}
+
+body {
+    background-color: #171c32 !important;
+}
+.bg-black{
+    background-color:black !important;
+}
+.text-red{
+    color: #b81d5b !important;
+}
+.text-pista{
+    color: rgb(189, 255, 91);
+}
+
+.text-gary {
+    color: #8f9bb3 !important;
+}
+
+.z-index {
+    z-index: 999999999999 !important;
+}
+
+.box-pantone {
+    border-radius: 10px;
+}
+
+.btn-bg-gr {
+    border: none;
+    background: linear-gradient(#ff708d, #ff3d71) !important;
+    box-shadow: 0 0 0 0, #db2c66 #b81d5b, 0 0 transparent !important;
+    color: #ffffff !important;
+    padding: 0 5px;
+}
+.be-l{
+    font-size: 14px !important;
+}
+
+.btn:hover {
+    background: linear-gradient(to right, #ffa8b4, #ff708d);
+}
+
+header {
+    .code {
+        margin-top: 10px;
+
+        ul {
+            li {
+                .btn {
+                    line-height: 10px !important;
+                    height: 30px !important;
+                }
+            }
+        }
+    }
+
+}
+
+.houses {
+    // height: 100vh;
+    // position: static;
+    ul {
+
+        li:hover,
+        i:hover {
+            color: rgb(70, 70, 242) !important;
+            transition: all 1.2s;
+        }
+    }
+}
+
+.accordion h2 {
+    line-height: 0 !important;
+}
+
+.accordion-item {
+    border-bottom: 2px solid #171c32;
+    background-color: #171c32 !important;
+}
+
+.accordion-button::after {
+    background-image: url('../img/arrow-down-sign-to-navigate.png') ;
+}
+
+.accordion-button:focus {
+    box-shadow: none !important;
+}
+
+.toolbar {
+    display: none;
+}
+
+
+#chart-timeline {
+    height: 100px !important;
+}
+.header {
+    height: 100vh;
+    overflow-y: scroll;
+    position: fixed;
+    top: 68px;
+    left: 0;
+
+}
+.header2{
+    height:300px;
+    overflow-y: scroll;
+}
+
+.header3{
+    height:350px;
+    overflow-y: scroll;
+
+}
+/*scrool bar*/
+::-webkit-scrollbar {
+    width: 7px;
+    background-color:#000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color:#222b45;
+    height: 30px;
+}
+
+// .apexcharts-svg{
+//     // height:150px !important;
+// }
+.apexcharts-canvas .apexchartsarea-datetime .apexcharts-theme-light {
+    background-color: #b81d5b !important;
+}
+
+
+.apexcharts-tooltip.apexcharts-theme-light {
+    background-color: #ffffffcc !important;
+    border: none !important;
+    color: #171c32 !important;
+}
+
+.apexcharts-xaxis-annotations {
+    border: 1px solid #171c32 !important;
+}
+
+.apexcharts-xaxistooltip {
+    background-color: #5983d5 !important;
+    border: none !important;
+}
+
+#chart {
+    // height: 150px;
+    padding-top: 0px;
+}
+#app .bar-chart{
+    height: 500px !important;
+}
+.fot i:hover{
+    transition: all 1.2s;
+    color: white !important;
+}
+.hzx{
+    position: relative;
+}
+.div{
+    width: 300px;
+    height: 350px;
+    top: 15%;
+    left: 42%;
+    background-color: #222b456b;
+    position: absolute;
+}
+@media (max-width:575px) {
+    /* XS */
+}
+
+@media (min-width:767px) {
+    /* SM */
+}
+
+@media (min-width:991px) {
+    /* MD */
+}
+
+@media (min-width:1199px) {
+
+    /* lg */
+
+
+}
+
+@media (min-width:1399px) {
+
+    // xxl
+
+
+}
+
+
+
+
+
+
+@media (min-width:1401px) {
+    /* XXL */
+
+
+}
