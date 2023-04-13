@@ -9,13 +9,16 @@
 body {
     background-color: #171c32 !important;
 }
-.bg-black{
-    background-color:black !important;
+
+.bg-black {
+    background-color: black !important;
 }
-.text-red{
+
+.text-red {
     color: #b81d5b !important;
 }
-.text-pista{
+
+.text-pista {
     color: rgb(189, 255, 91);
 }
 
@@ -38,12 +41,15 @@ body {
     color: #ffffff !important;
     padding: 0 5px;
 }
-.be-l{
+
+.be-l {
     font-size: 14px !important;
 }
 
-.btn:hover {
-    background: linear-gradient(to right, #ffa8b4, #ff708d);
+.big{
+    .btn:hover {
+        background: linear-gradient(to right, #ad0f24, #ff708d);
+    }
 }
 
 header {
@@ -62,18 +68,101 @@ header {
 
 }
 
-.houses {
-    // height: 100vh;
-    // position: static;
+#chart,
+.chart-box {
+    padding-top: 20px;
+    padding-left: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 22px 35px -16px rgba(0, 0, 0, 0.1);
+}
+
+select.flat-select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #008FFB url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'60px\' height=\'60px\'><polyline fill=\'white\' points=\'46.139,15.518 25.166,36.49 4.193,15.519\'/></svg>") no-repeat scroll right 2px top 9px / 16px 16px;
+    border: 0 none;
+    border-radius: 3px;
+    color: #fff;
+    font-family: arial, tahoma;
+    font-size: 16px;
+    font-weight: bold;
+    outline: 0 none;
+    height: 33px;
+    padding: 5px 20px 5px 10px;
+    text-align: center;
+    text-indent: 0.01px;
+    text-overflow: "";
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease 0s;
+    width: auto;
+    -webkit-transition: 0.3s ease all;
+    -moz-transition: 0.3s ease all;
+    -ms-transition: 0.3s ease all;
+    -o-transition: 0.3s ease all;
+    transition: 0.3s ease all;
+}
+
+select.flat-select:focus,
+select.flat-select:hover {
+    border: 0 !important;
+    outline: 0;
+}
+
+#chart,
+.chart-box {
+    border: none;
+    box-shadow: none;
+}
+
+.apexcharts-canvas {
+    margin: 0 auto;
+    height: 100px !important;
+}
+
+.header {
+
     ul {
 
         li:hover,
-        i:hover {
-            color: rgb(70, 70, 242) !important;
+        :hover {
+            color: rgb(71, 157, 236) !important;
             transition: all 1.2s;
         }
     }
 }
+
+.accordion {
+    .accordion-item {
+        h2{
+            button{
+                a{
+                    color: white;
+                }
+                a:hover {
+                    color: #008FFB ;
+                    transition: all 0.8s;
+                }
+            }
+        }
+        
+    }
+}
+
+#flush-collapseOne {
+    ul {
+        li {
+            a:hover {
+                color: #008FFB !important;
+            }
+        }
+    }
+}
+
+// color: #008FFB !important;
+// transition: all 1.2s;
+
 
 .accordion h2 {
     line-height: 0 !important;
@@ -85,7 +174,7 @@ header {
 }
 
 .accordion-button::after {
-    background-image: url('../img/arrow-down-sign-to-navigate.png') ;
+    background-image: url('../img/arrow-down-sign-to-navigate.png');
 }
 
 .accordion-button:focus {
@@ -97,9 +186,6 @@ header {
 }
 
 
-#chart-timeline {
-    height: 100px !important;
-}
 .header {
     height: 100vh;
     overflow-y: scroll;
@@ -108,30 +194,48 @@ header {
     left: 0;
 
 }
-.header2{
-    height:300px;
+
+.header2 {
+    height: 240px;
     overflow-y: scroll;
 }
 
-.header3{
-    height:350px;
+.header3 {
+    height: 360px;
     overflow-y: scroll;
 
 }
-/*scrool bar*/
+
+.borderfull {
+    border: 1px solid black !important;
+}
+
+.bordertop {
+    border-top: 1px solid black !important;
+}
+
 ::-webkit-scrollbar {
     width: 7px;
-    background-color:#000000;
+    background-color: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color:#222b45;
+    background-color: #222b45;
     height: 30px;
 }
 
-// .apexcharts-svg{
-//     // height:150px !important;
-// }
+.border-black {
+    border: 2px #000000;
+}
+
+.rw {
+    margin-top: 20px;
+}
+
+#chartdiv div:nth-child(2) {
+    display: none;
+}
+
 .apexcharts-canvas .apexchartsarea-datetime .apexcharts-theme-light {
     background-color: #b81d5b !important;
 }
@@ -153,60 +257,27 @@ header {
 }
 
 #chart {
-    // height: 150px;
     padding-top: 0px;
 }
-#app .bar-chart{
+
+#app .bar-chart {
     height: 500px !important;
 }
-.fot i:hover{
+
+.fot i:hover {
     transition: all 1.2s;
     color: white !important;
 }
-.hzx{
+
+.hzx {
     position: relative;
 }
-.div{
+
+.div {
     width: 300px;
     height: 350px;
     top: 15%;
     left: 42%;
     background-color: #222b456b;
     position: absolute;
-}
-@media (max-width:575px) {
-    /* XS */
-}
-
-@media (min-width:767px) {
-    /* SM */
-}
-
-@media (min-width:991px) {
-    /* MD */
-}
-
-@media (min-width:1199px) {
-
-    /* lg */
-
-
-}
-
-@media (min-width:1399px) {
-
-    // xxl
-
-
-}
-
-
-
-
-
-
-@media (min-width:1401px) {
-    /* XXL */
-
-
 }

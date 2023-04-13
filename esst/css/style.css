@@ -46,8 +46,8 @@ body {
   font-size: 14px !important;
 }
 
-.btn:hover {
-  background: linear-gradient(to right, #ffa8b4, #ff708d);
+.big .btn:hover {
+  background: linear-gradient(to right, #ad0f24, #ff708d);
 }
 
 header .code {
@@ -58,10 +58,71 @@ header .code ul li .btn {
   height: 30px !important;
 }
 
-.houses ul li:hover,
-.houses ul i:hover {
-  color: rgb(70, 70, 242) !important;
+#chart,
+.chart-box {
+  padding-top: 20px;
+  padding-left: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 22px 35px -16px rgba(0, 0, 0, 0.1);
+}
+
+select.flat-select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #008FFB url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60px' height='60px'><polyline fill='white' points='46.139,15.518 25.166,36.49 4.193,15.519'/></svg>") no-repeat scroll right 2px top 9px/16px 16px;
+  border: 0 none;
+  border-radius: 3px;
+  color: #fff;
+  font-family: arial, tahoma;
+  font-size: 16px;
+  font-weight: bold;
+  outline: 0 none;
+  height: 33px;
+  padding: 5px 20px 5px 10px;
+  text-align: center;
+  text-indent: 0.01px;
+  text-overflow: "";
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease 0s;
+  width: auto;
+  transition: 0.3s ease all;
+}
+
+select.flat-select:focus,
+select.flat-select:hover {
+  border: 0 !important;
+  outline: 0;
+}
+
+#chart,
+.chart-box {
+  border: none;
+  box-shadow: none;
+}
+
+.apexcharts-canvas {
+  margin: 0 auto;
+  height: 100px !important;
+}
+
+.header ul li:hover,
+.header ul :hover {
+  color: rgb(71, 157, 236) !important;
   transition: all 1.2s;
+}
+
+.accordion .accordion-item h2 button a {
+  color: white;
+}
+.accordion .accordion-item h2 button a:hover {
+  color: #008FFB;
+  transition: all 0.8s;
+}
+
+#flush-collapseOne ul li a:hover {
+  color: #008FFB !important;
 }
 
 .accordion h2 {
@@ -85,10 +146,6 @@ header .code ul li .btn {
   display: none;
 }
 
-#chart-timeline {
-  height: 100px !important;
-}
-
 .header {
   height: 100vh;
   overflow-y: scroll;
@@ -98,16 +155,23 @@ header .code ul li .btn {
 }
 
 .header2 {
-  height: 300px;
+  height: 240px;
   overflow-y: scroll;
 }
 
 .header3 {
-  height: 350px;
+  height: 360px;
   overflow-y: scroll;
 }
 
-/*scrool bar*/
+.borderfull {
+  border: 1px solid black !important;
+}
+
+.bordertop {
+  border-top: 1px solid black !important;
+}
+
 ::-webkit-scrollbar {
   width: 7px;
   background-color: #000000;
@@ -116,6 +180,18 @@ header .code ul li .btn {
 ::-webkit-scrollbar-thumb {
   background-color: #222b45;
   height: 30px;
+}
+
+.border-black {
+  border: 2px #000000;
+}
+
+.rw {
+  margin-top: 20px;
+}
+
+#chartdiv div:nth-child(2) {
+  display: none;
 }
 
 .apexcharts-canvas .apexchartsarea-datetime .apexcharts-theme-light {
@@ -161,20 +237,4 @@ header .code ul li .btn {
   left: 42%;
   background-color: rgba(34, 43, 69, 0.4196078431);
   position: absolute;
-}
-
-@media (max-width: 575px) {
-  /* XS */
-}
-@media (min-width: 767px) {
-  /* SM */
-}
-@media (min-width: 991px) {
-  /* MD */
-}
-@media (min-width: 1199px) {
-  /* lg */
-}
-@media (min-width: 1401px) {
-  /* XXL */
 }/*# sourceMappingURL=style.css.map */
